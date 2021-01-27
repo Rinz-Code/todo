@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block content %}
+ <h1 style="text-align: center;">Tasks    <a href="{% url 'new'%}">   ADD NEW TASK</a></h1>
+
+
+<table class="table">
+  <thead>
+
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task</th>
+      <th scope="col">Change</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+        <tr>
+            {% for lens,task in tasks %}
+              <th scope="row">{{lens}}</th>
+              <td>{{task}}</td>
+              <td><a>Change</a></td>
+              <td><a>Delete</a></td>
+        </tr>
+        {% empty %}
+        <tr><td>No Tasks</td></tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
